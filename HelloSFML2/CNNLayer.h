@@ -13,6 +13,7 @@ public:
 				unsigned int padding = 0, unsigned int strides = 1);
 	CNNLayer(Layer *input_layer, std::array<unsigned int, 2> size, unsigned int filters = 1, unsigned int actMaps = 1,
 				unsigned int padding = 0, unsigned int strides = 1);
+	CNNLayer(Layer *input_layer);
 	~CNNLayer();
 
 	// dont allow copying and assignment

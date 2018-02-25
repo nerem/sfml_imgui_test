@@ -1,5 +1,6 @@
 #pragma once
 #include <array>
+#include <string>
 
 class Layer
 {
@@ -15,6 +16,9 @@ public:
 	void SetInputLayer(Layer* input);
 	void SetOutputLayer(Layer* output);
 
+	const std::string& GetName() const { return layer_name; }
+	void SetName(const std::string& name);
+
 protected:
 	// input and output layer
 	Layer *input = nullptr;
@@ -24,5 +28,7 @@ protected:
 	unsigned int activation_maps;
 	// current data size
 	std::array<unsigned int, 2> size;
+
+	std::string layer_name;
 };
 

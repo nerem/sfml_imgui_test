@@ -38,6 +38,11 @@ CNNLayer::CNNLayer(Layer *input_layer, std::array<unsigned int, 2> size, unsigne
 	CNNLayer(size, filters, actMaps, padding, strides);
 }
 
+CNNLayer::CNNLayer(Layer * input_layer)
+{
+	input = input_layer;
+}
+
 CNNLayer::~CNNLayer()
 {
 }

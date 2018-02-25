@@ -20,3 +20,8 @@ void Layer::SetOutputLayer(Layer *output)
 {
 	this->output = output;
 }
+
+void Layer::SetName(const std::string & name)
+{
+	layer_name = name;
+}
