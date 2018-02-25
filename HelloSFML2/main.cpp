@@ -10,11 +10,14 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "", sf::Style::Default);
+	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "", sf::Style::Fullscreen);
 	window.setVerticalSyncEnabled(true);
 	ImGui::SFML::Init(window);
 
 	std::cout << "Initialized.\n";
+
+	sf::Vector2u window_size;
+	window_size = window.getSize();
 
 	sf::Vector2i mousePos;
 
@@ -42,7 +45,8 @@ int main()
 	// set the character size
 	text.setCharacterSize(32); // in pixels, not points!
 	// set the color
-	text.setFillColor(sf::Color(100,100,100));
+	text.setFillColor(sf::Color(150,150,150));
+	text.setPosition(window_size.x - 200, window_size.y - 50);
 
 	// let's use char array as buffer, see next part
 	// for instructions on using std::string with ImGui
@@ -81,6 +85,25 @@ int main()
 
 		ImGui::SFML::Update(window, deltaClock.restart());
 
+		ImGui::SetNextWindowPos(ImVec2(.0f, .0f), ImGuiSetCond_Always);
+		ImGui::SetNextWindowSize(window_size, ImGuiSetCond_Always);
+		ImGui::Begin("CNN Creator", 0,	ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoCollapse |
+										ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::BeginMenu("File"))
+			{
+				if (ImGui::MenuItem("New CNN", "Ctrl+N")) { /* Do stuff */}
+				if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
+				if (ImGui::MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
+				if (ImGui::MenuItem("Close", "ESC")) { window.close(); }
+				ImGui::EndMenu();
+			}
+			ImGui::EndMenuBar();
+		}
+
+		ImGui::End();
+
 		ImGui::Begin("Sample window"); // begin window
 
 									   // Background color edit
@@ -114,7 +137,7 @@ int main()
 			{
 				if (ImGui::BeginMenu("File"))
 				{
-					if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
+					if (ImGui::MenuItem("Open..")) { /* Do stuff */ }
 					if (ImGui::MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
 					if (ImGui::MenuItem("Close", "Ctrl+W")) { my_tool_active = false; }
 					ImGui::EndMenu();
