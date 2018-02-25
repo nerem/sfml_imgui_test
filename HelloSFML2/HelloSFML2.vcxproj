@@ -84,10 +84,18 @@
     <ClCompile Include="..\..\..\..\..\..\..\imgui-master\imgui.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\imgui-master\imgui_demo.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\imgui-master\imgui_draw.cpp" />
+    <ClCompile Include="CNNLayer.cpp" />
+    <ClCompile Include="FullyConnectedLayer.cpp" />
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MaxPoolingLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CNNLayer.h" />
+    <ClInclude Include="FullyConnectedLayer.h" />
+    <ClInclude Include="Layer.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="MaxPoolingLayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -86,7 +86,7 @@ int main()
 		ImGui::SFML::Update(window, deltaClock.restart());
 
 		ImGui::SetNextWindowPos(ImVec2(.0f, .0f), ImGuiSetCond_Always);
-		ImGui::SetNextWindowSize(window_size, ImGuiSetCond_Always);
+		ImGui::SetNextWindowSize(ImVec2(window_size.x, 20), ImGuiSetCond_Always);
 		ImGui::Begin("CNN Creator", 0,	ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoCollapse |
 										ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		if (ImGui::BeginMenuBar())

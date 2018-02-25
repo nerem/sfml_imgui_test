@@ -1,0 +1,28 @@
+#pragma once
+#include <array>
+
+class Layer
+{
+public:
+	Layer();
+	Layer(const Layer&) = delete;
+	void operator=(const Layer&) = delete;
+	virtual ~Layer();
+
+	const Layer* GetOutputLayer() const { return output; }
+	const Layer* GetInputLayer() const { return input; }
+
+	void SetInputLayer(Layer* input);
+	void SetOutputLayer(Layer* output);
+
+protected:
+	// input and output layer
+	Layer *input = nullptr;
+	Layer *output = nullptr;
+
+	// how many activation maps does this layer have
+	unsigned int activation_maps;
+	// current data size
+	std::array<unsigned int, 2> size;
+};
+
