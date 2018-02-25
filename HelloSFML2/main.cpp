@@ -4,13 +4,17 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
+
+#include <iostream>
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "", sf::Style::Fullscreen);
+	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "", sf::Style::Default);
 	window.setVerticalSyncEnabled(true);
 	ImGui::SFML::Init(window);
+
+	std::cout << "Initialized.\n";
 
 	sf::Vector2i mousePos;
 
