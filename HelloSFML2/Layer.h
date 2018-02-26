@@ -1,8 +1,9 @@
 #pragma once
 #include <array>
 #include <string>
+#include "NumberedObject.h"
 
-class Layer
+class Layer : public NumberedObject
 {
 public:
 	Layer();

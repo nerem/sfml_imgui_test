@@ -8,6 +8,9 @@
 
 #include <iostream>
 
+#include "Layer.h"
+
+
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "", sf::Style::Fullscreen);
